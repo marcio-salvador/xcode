@@ -4,7 +4,7 @@ echo'<h3>Display</h3>';
 echo '<p>'.'&nbsp;'.'</p>';
 
 $firstname = $_SESSION['index']['firstname'];
-$lastname = $_SESSION['index']'lastname'];
+$lastname = $_SESSION['index']['lastname'];
 $age = $_SESSION['index']['age'];
 $gender = $_SESSION['index']['gender'];
 $streetaddress = $_SESSION['streetaddress'];
