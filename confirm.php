@@ -12,6 +12,13 @@ $city = $_SESSION['city'];
 $county = $_SESSION['county'];
 $postcode = $_SESSION['postcode'];
 
+echo "<pre>";
+print_r($_SESSION);
+echo "</pre>";
+
+
+
+
 echo"NAME: $firstname ";
 echo"$lastname<br/>";
 echo"AGE: $age<br/>";
