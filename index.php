@@ -94,10 +94,10 @@ $num_errors = count($errors);
 	</body>
 	</html>
 	<?php
-	$_SESSION['firstname'] = $clean['firstname'];	//storing session data
-	$_SESSION['lastname'] = $clean['lastname'];	//storing session data
-	$_SESSION['age'] = $clean['age'];	//storing session data
-	$_SESSION['gender'] = $clean['gender']; //storing session data
+	$_SESSION['index']['firstname'] = $clean['firstname'];	//storing session data
+	$_SESSION['index']['lastname'] = $clean['lastname'];	//storing session data
+	$_SESSION['index']['age'] = $clean['age'];	//storing session data
+	$_SESSION['index']['gender'] = $clean['gender']; //storing session data
 	$handle = fopen('valid_data.log', 'a');	//open file to append data mode 'a' - to file 'valid_data.log'
 	//file permissions
 	
