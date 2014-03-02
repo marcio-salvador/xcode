@@ -63,7 +63,7 @@ echo '<p>'.'&nbsp;'.'</p>';
 			$clean['gender'] = $_POST['gender'];
 			
 		}else{
-		$errors[] = htmlentities('Invalid gender');
+		$errors[] = htmlentities('Invalid gender, choose a gender');
 		}
 		
 		}else{
@@ -81,34 +81,13 @@ $num_errors = count($errors);
 
  if (isset($_POST['submit']) && isset($clean['firstname']) && isset($clean['lastname']) && isset($clean['age']) && isset($clean['gender']) && $num_errors == 0) {
 	
-	$output .= '<p>'.htmlentities('You have entered valid data!').'</p>';
-	?>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
+	//$output .= '<p>'.htmlentities('You have entered valid data!').'</p>';
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	</head>
-	<body>
-	<a href="address.php?<?php echo SID; ?>">Next</a>
-	</body>
-	</html>
-	<?php
-	$_SESSION['index']['firstname'] = $clean['firstname'];	//storing session data
-	$_SESSION['index']['lastname'] = $clean['lastname'];	//storing session data
-	$_SESSION['index']['age'] = $clean['age'];	//storing session data
-	$_SESSION['index']['gender'] = $clean['gender']; //storing session data
-	$handle = fopen('valid_data.log', 'a');	//open file to append data mode 'a' - to file 'valid_data.log'
-	//file permissions
-	
-	foreach($clean as $registration){	//array of data written to file
-	
-	fwrite($handle,"$registration ");
-	 
-	}
-	
-	fclose($handle);	//close file after data is appended
-	
+	$_SESSION['firstname'] = $clean['firstname'];	//storing session data
+	$_SESSION['lastname'] = $clean['lastname'];	//storing session data
+	$_SESSION['age'] = $clean['age'];	//storing session data
+	$_SESSION['gender'] = $clean['gender']; //storing session data
+	header("Location: /exercise/address.php" . SID); //redirecting and passing a session id
  } else {
 
  if ($num_errors > 0) {
@@ -148,7 +127,7 @@ $num_errors = count($errors);
 				</div>
 				
                 <div></br>            
-                    <input type="submit" name="submit" value="Register" />
+                    <input type="submit" name="submit" value="Register"/>
 					
                 </div>
             </fieldset>
