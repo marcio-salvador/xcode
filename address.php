@@ -3,10 +3,10 @@ session_start();
 echo'<h3>Address</h3>';
 echo '<p>'.'&nbsp;'.'</p>';
 
-$firstname = $_SESSION['index']['firstname'];
-$lastname = $_SESSION['index']['lastname'];
-$age = $_SESSION['index']['age'];
-$gender = $_SESSION['index']['gender'];
+$firstname = $_SESSION['firstname'];
+$lastname = $_SESSION['lastname'];
+$age = $_SESSION['age'];
+$gender = $_SESSION['gender'];
 echo"$firstname<br/>";
 echo"$lastname<br/>";
 echo"$age<br/>";
@@ -98,33 +98,12 @@ $num_errors = count($errors);
  if (isset($_POST['submit']) && isset($clean['streetaddress']) && isset($clean['city']) && isset($clean['county'])&& isset($clean['postcode']) && $num_errors == 0) {
 	
 	$output .= '<p>'.htmlentities('You have entered valid data!').'</p>';
-	?>
-	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
-	<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
-	<head>
 	
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	</head>
-	<body>
-	<a href="display.php?<?php echo SID; ?>">Next</a>
-	</body>
-	</html>
-	<?php
 	$_SESSION['streetaddress'] = $clean['streetaddress'];	//storing session data
 	$_SESSION['city'] = $clean['city'];	//storing session data
 	$_SESSION['county'] = $clean['county'];	//storing session data
 	$_SESSION['postcode'] = $clean['postcode'];	//storing session data
-	
-	$handle = fopen('valid_data.log', 'a');	//open file to append data mode 'a' - to file 'valid_data.log'
-	//file permissions
-	
-	foreach($clean as $registration){	//array of data written to file
-	
-	fwrite($handle,"$registration ");
-	 
-	}
-	
-	fclose($handle);	//close file after data is appended
+	header("Location: /exercise/display.php" . SID); //redirecting and passing the session id
 	
  } else {
 
