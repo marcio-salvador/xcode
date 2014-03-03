@@ -35,7 +35,6 @@ echo"$gender<br/>";
 			$errors[] = htmlentities('1password was not submitted.');
 		}
 	
-		
 		if (isset($_POST['city'])){
 			
 			$city_regex = '/^([a-zA-Z0-9-\.\\s]{3,20})$/';	
