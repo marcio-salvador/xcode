@@ -3,10 +3,10 @@ session_start();
 echo'<h3>Display</h3>';
 echo '<p>'.'&nbsp;'.'</p>';
 
-$firstname = $_SESSION['index']['firstname'];
-$lastname = $_SESSION['index']['lastname'];
-$age = $_SESSION['index']['age'];
-$gender = $_SESSION['index']['gender'];
+$firstname = $_SESSION['firstname'];
+$lastname = $_SESSION['lastname'];
+$age = $_SESSION['age'];
+$gender = $_SESSION['gender'];
 $streetaddress = $_SESSION['streetaddress'];
 $city = $_SESSION['city'];
 $county = $_SESSION['county'];
